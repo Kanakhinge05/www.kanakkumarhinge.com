@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #16d33f;
+            --primary: #090909;
             --accent: #6612b5;
             --accent-light: #F39C12;
             --github: #24292E;
@@ -898,7 +898,7 @@
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <div class="stat-number">7</div>
+                    <div class="stat-number" id="githubRepoCountHero">—</div>
                     <div class="stat-label">GitHub Repos</div>
                 </div>
                 <div class="stat-item">
@@ -906,7 +906,7 @@
                     <div class="stat-label">Internships</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">2</div>
+                    <div class="stat-number" id="projectsCountHero">—</div>
                     <div class="stat-label">Projects</div>
                 </div>
             </div>
@@ -921,9 +921,9 @@
 
         <div class="github-profile">
             <div class="github-avatar-card">
-                <img src="https://avatars.githubusercontent.com/u/255483555?v=4" alt="Kanak Kumar Hinge" class="github-avatar">
-                <h3 class="github-username">Kanakhinge05</h3>
-                <p class="github-handle">Kanak Kumar Hinge</p>
+                <img src="https://avatars.githubusercontent.com/u/255483555?v=4" alt="Kanak Kumar Hinge" class="github-avatar" id="githubAvatar">
+                <h3 class="github-username" id="githubUsername">Kanakhinge05</h3>
+                <p class="github-handle" id="githubDisplayName">Kanak Kumar Hinge</p>
                 <div class="github-bio">
                     <div class="github-bio-line">☁️ AWS DevOps Engineer</div>
                     <div class="github-bio-line">⚙️ CI/CD | 🧱 Terraform</div>
@@ -931,12 +931,8 @@
                     <div class="github-bio-line">🚀 Automating cloud infrastructure</div>
                 </div>
                 <div class="github-info">
-                    <div class="github-info-item">
-                        📍 Indore, India
-                    </div>
-                    <div class="github-info-item">
-                        📅 Joined Jan 2026
-                    </div>
+                    <div class="github-info-item" id="githubLocation">📍 Indore, India</div>
+                    <div class="github-info-item" id="githubJoinDate">📅 Joined Jan 2026</div>
                     <div class="github-info-item">
                         🔗 <a href="https://kanak-kumar-hinge-416ju0h.gamma.site/" target="_blank" style="color: var(--github-accent); text-decoration: none;">Portfolio</a>
                     </div>
@@ -945,15 +941,15 @@
 
             <div class="github-stats-grid">
                 <div class="github-stat-card">
-                    <div class="github-stat-number">7</div>
+                    <div class="github-stat-number" id="githubPublicRepos">—</div>
                     <div class="github-stat-label">Public Repositories</div>
                 </div>
                 <div class="github-stat-card">
-                    <div class="github-stat-number">2</div>
+                    <div class="github-stat-number" id="githubProjects">—</div>
                     <div class="github-stat-label">Projects</div>
                 </div>
                 <div class="github-stat-card">
-                    <div class="github-stat-number">2</div>
+                    <div class="github-stat-number" id="githubStars">—</div>
                     <div class="github-stat-label">Stars</div>
                 </div>
             </div>
@@ -974,53 +970,13 @@
         </div>
 
         <h3 style="font-size: 2rem; text-align: center; margin: 4rem 0 2rem; color: white;">Featured Repositories</h3>
-        <div class="repos-grid">
-            <div class="repo-card">
+        <div class="repos-grid" id="featuredRepos">
+            <div class="repo-card" aria-live="polite">
                 <div class="repo-header">
-                    <span class="repo-icon">📁</span>
-                    <a href="https://github.com/Kanakhinge05/demo1" target="_blank" class="repo-name">KK-portfolio</a>
-                    <span class="repo-visibility">Public</span>
+                    <span class="repo-icon">⏳</span>
+                    <span class="repo-name" style="pointer-events: none;">Loading repositories…</span>
                 </div>
-                <p class="repo-description">Demo project showcasing DevOps practices and automation workflows.</p>
-                <div class="repo-footer">
-                    <div class="repo-language">
-                        <span class="language-dot" style="background: #e64207;"></span>
-                        <span>html</span>
-                    </div>
-                    <span>⭐</span>
-                </div>
-            </div>
-
-            <div class="repo-card">
-                <div class="repo-header">
-                    <span class="repo-icon">📁</span>
-                    <a href="https://github.com/Kanakhinge05/aws-file" target="_blank" class="repo-name">P01</a>
-                    <span class="repo-visibility">Public</span>
-                </div>
-                <p class="repo-description">AWS file management and cloud storage solutions with automated workflows.</p>
-                <div class="repo-footer">
-                    <div class="repo-language">
-                        <span class="language-dot" style="background: #e64207;"></span>
-                        <span>html</span>
-                    </div>
-                    <span>⭐</span>
-                </div>
-            </div>
-
-            <div class="repo-card">
-                <div class="repo-header">
-                    <span class="repo-icon">📁</span>
-                    <a href="https://github.com/Kanakhinge05/my-project" target="_blank" class="repo-name">my-project</a>
-                    <span class="repo-visibility">Public</span>
-                </div>
-                <p class="repo-description">Mini Python project demonstrating automation and scripting capabilities.</p>
-                <div class="repo-footer">
-                    <div class="repo-language">
-                        <span class="language-dot" style="background: #3572A5;"></span>
-                        <span>Python</span>
-                    </div>
-                    <span>⭐</span>
-                </div>
+                <p class="repo-description">Fetching latest repositories from GitHub.</p>
             </div>
         </div>
     </section>
@@ -1246,5 +1202,254 @@
     <footer>
         <p>&copy; 2026 Kanak Kumar Hinge. All rights reserved. | <a href="https://github.com/Kanakhinge05" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank">LinkedIn</a></p>
     </footer>
+
+    <script>
+        (function () {
+            const GITHUB_USERNAME = 'Kanakhinge05';
+            const MAX_FEATURED_REPOS = 6;
+            const CACHE_TTL_MS = 10 * 60 * 1000;
+            const cacheKey = `kk_portfolio_github_cache_v1_${GITHUB_USERNAME}`;
+
+            const languageColors = {
+                JavaScript: '#f1e05a',
+                TypeScript: '#3178c6',
+                Python: '#3572A5',
+                HTML: '#e34c26',
+                CSS: '#563d7c',
+                Shell: '#89e051',
+                HCL: '#844FBA',
+                Terraform: '#844FBA',
+                Dockerfile: '#384d54',
+                Go: '#00ADD8',
+                Java: '#b07219',
+                'C++': '#f34b7d',
+                C: '#555555'
+            };
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            function safeText(value, fallback = '—') {
+                if (value === null || value === undefined) return fallback;
+                const text = String(value).trim();
+                return text.length ? text : fallback;
+            }
+
+            function formatMonthYear(isoDate) {
+                if (!isoDate) return '—';
+                const date = new Date(isoDate);
+                if (Number.isNaN(date.getTime())) return '—';
+                return date.toLocaleString(undefined, { month: 'short', year: 'numeric' });
+            }
+
+            async function fetchJson(url) {
+                const response = await fetch(url, {
+                    headers: {
+                        'Accept': 'application/vnd.github+json'
+                    }
+                });
+
+                if (!response.ok) {
+                    const message = `GitHub API error (${response.status})`;
+                    throw new Error(message);
+                }
+
+                return response.json();
+            }
+
+            function setText(id, value) {
+                const el = $(id);
+                if (!el) return;
+                el.textContent = safeText(value);
+            }
+
+            function setAvatar(profile) {
+                const avatar = $('githubAvatar');
+                if (avatar && profile.avatar_url) avatar.src = profile.avatar_url;
+            }
+
+            function setProfile(profile) {
+                setAvatar(profile);
+                setText('githubUsername', profile.login);
+                setText('githubDisplayName', profile.name || profile.login);
+
+                const locationEl = $('githubLocation');
+                if (locationEl) locationEl.textContent = `📍 ${safeText(profile.location, 'Location not set')}`;
+
+                const joinEl = $('githubJoinDate');
+                if (joinEl) joinEl.textContent = `📅 Joined ${formatMonthYear(profile.created_at)}`;
+
+                const repoCount = Number.isFinite(profile.public_repos) ? profile.public_repos : '—';
+                setText('githubRepoCountHero', repoCount);
+                setText('githubPublicRepos', repoCount);
+            }
+
+            function buildRepoCard(repo) {
+                const visibility = repo.private ? 'Private' : 'Public';
+                const language = repo.language || '';
+                const languageColor = languageColors[language] || '#95a5a6';
+                const description = repo.description || 'No description provided.';
+                const stars = Number.isFinite(repo.stargazers_count) ? repo.stargazers_count : 0;
+
+                const card = document.createElement('div');
+                card.className = 'repo-card';
+
+                const header = document.createElement('div');
+                header.className = 'repo-header';
+
+                const icon = document.createElement('span');
+                icon.className = 'repo-icon';
+                icon.textContent = '📁';
+
+                const nameLink = document.createElement('a');
+                nameLink.className = 'repo-name';
+                nameLink.href = repo.html_url;
+                nameLink.target = '_blank';
+                nameLink.rel = 'noopener noreferrer';
+                nameLink.textContent = repo.name;
+
+                const vis = document.createElement('span');
+                vis.className = 'repo-visibility';
+                vis.textContent = visibility;
+
+                header.appendChild(icon);
+                header.appendChild(nameLink);
+                header.appendChild(vis);
+
+                const desc = document.createElement('p');
+                desc.className = 'repo-description';
+                desc.textContent = description;
+
+                const footer = document.createElement('div');
+                footer.className = 'repo-footer';
+
+                const langWrap = document.createElement('div');
+                langWrap.className = 'repo-language';
+
+                const dot = document.createElement('span');
+                dot.className = 'language-dot';
+                dot.style.background = languageColor;
+
+                const lang = document.createElement('span');
+                lang.textContent = language ? language : '—';
+
+                langWrap.appendChild(dot);
+                langWrap.appendChild(lang);
+
+                const starsEl = document.createElement('span');
+                starsEl.textContent = `⭐ ${stars}`;
+
+                footer.appendChild(langWrap);
+                footer.appendChild(starsEl);
+
+                card.appendChild(header);
+                card.appendChild(desc);
+                card.appendChild(footer);
+
+                return card;
+            }
+
+            function renderRepos(repos) {
+                const grid = $('featuredRepos');
+                if (!grid) return;
+
+                const eligible = repos
+                    .filter((r) => !r.fork && !r.archived)
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+                    .slice(0, MAX_FEATURED_REPOS);
+
+                grid.innerHTML = '';
+
+                if (!eligible.length) {
+                    const empty = document.createElement('div');
+                    empty.className = 'repo-card';
+                    empty.innerHTML = `
+                        <div class="repo-header">
+                            <span class="repo-icon">📭</span>
+                            <span class="repo-name" style="pointer-events: none;">No repositories found</span>
+                        </div>
+                        <p class="repo-description">Make sure your repositories are public (or increase API rate limits).</p>
+                    `;
+                    grid.appendChild(empty);
+                    return;
+                }
+
+                for (const repo of eligible) {
+                    grid.appendChild(buildRepoCard(repo));
+                }
+
+                setText('projectsCountHero', eligible.length);
+                setText('githubProjects', eligible.length);
+
+                const totalStars = eligible.reduce((sum, r) => sum + (Number.isFinite(r.stargazers_count) ? r.stargazers_count : 0), 0);
+                setText('githubStars', totalStars);
+            }
+
+            function showRepoLoadError(message) {
+                const grid = $('featuredRepos');
+                if (!grid) return;
+
+                grid.innerHTML = `
+                    <div class="repo-card" aria-live="polite">
+                        <div class="repo-header">
+                            <span class="repo-icon">⚠️</span>
+                            <span class="repo-name" style="pointer-events: none;">Unable to load GitHub repositories</span>
+                        </div>
+                        <p class="repo-description">${message}</p>
+                    </div>
+                `;
+            }
+
+            function readCache() {
+                try {
+                    const raw = localStorage.getItem(cacheKey);
+                    if (!raw) return null;
+                    const parsed = JSON.parse(raw);
+                    if (!parsed || typeof parsed !== 'object') return null;
+                    if (!parsed.timestamp || Date.now() - parsed.timestamp > CACHE_TTL_MS) return null;
+                    return parsed.data || null;
+                } catch {
+                    return null;
+                }
+            }
+
+            function writeCache(data) {
+                try {
+                    localStorage.setItem(cacheKey, JSON.stringify({ timestamp: Date.now(), data }));
+                } catch {
+                    // ignore
+                }
+            }
+
+            async function loadGithub() {
+                const cached = readCache();
+                if (cached) {
+                    if (cached.profile) setProfile(cached.profile);
+                    if (cached.repos) renderRepos(cached.repos);
+                    return;
+                }
+
+                try {
+                    const [profile, repos] = await Promise.all([
+                        fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}`),
+                        fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?per_page=100&sort=created&direction=desc`)
+                    ]);
+
+                    writeCache({ profile, repos });
+                    setProfile(profile);
+                    renderRepos(repos);
+                } catch (err) {
+                    showRepoLoadError(err && err.message ? err.message : 'Unknown error.');
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadGithub);
+            } else {
+                loadGithub();
+            }
+        })();
+    </script>
 </body>
 </html>
