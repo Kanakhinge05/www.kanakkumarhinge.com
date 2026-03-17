@@ -18,7 +18,7 @@
             --text-light: #7F8C8D;
             --background: #FDFEFE;
             --card-bg: #FFFFFF;
-            --border: #ECF0F1;
+            --border: #4490a2;
             --success: #27AE60;
         }
         
@@ -300,108 +300,102 @@
             color: white;
             padding: 5rem 2rem;
         }
-        
-        /* Repository Cards */
-        .repos-grid {
+
+        .projects-grid {
             max-width: 1400px;
             margin: 3rem auto 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .repo-lists-grid {
-            max-width: 1400px;
-            margin: 2rem auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 1.5rem;
         }
 
-        .repo-list-panel {
-            background: rgba(255, 255, 255, 0.1);
+        .project-card {
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.25rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
         }
 
-        .repo-list-panel summary {
-            cursor: pointer;
-            list-style: none;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: white;
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .project-header {
             display: flex;
-            align-items: center;
+            align-items: start;
             justify-content: space-between;
             gap: 1rem;
+            margin-bottom: 0.75rem;
         }
 
-        .repo-list-panel summary::-webkit-details-marker {
-            display: none;
+        .project-title {
+            font-size: 1.35rem;
+            margin: 0;
+            color: white;
+            letter-spacing: -0.2px;
         }
 
-        .repo-list-badge {
-            font-size: 0.8rem;
-            padding: 0.25rem 0.65rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            background: rgba(255, 255, 255, 0.12);
-            color: rgba(255, 255, 255, 0.92);
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .repo-list {
-            margin-top: 1rem;
-            list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 0.75rem;
-            max-height: 360px;
-            overflow: auto;
-        }
-
-        .repo-list::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .repo-list::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-
-        .repo-list-item {
+        .project-links {
             display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .project-link {
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            padding: 0.75rem 0.85rem;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .repo-list-item a {
-            color: var(--github-accent);
+            gap: 0.4rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.92);
             text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: rgba(0, 0, 0, 0.14);
+            white-space: nowrap;
+        }
+
+        .project-link:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.84);
+            line-height: 1.7;
+            margin: 0.75rem 0 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-kpis {
+            display: grid;
+            gap: 0.4rem;
+            margin: 0 0 1rem;
+            padding-left: 1.1rem;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 0.92rem;
+        }
+
+        .project-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.25rem;
+        }
+
+        .chip {
+            padding: 0.3rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 0.8rem;
             font-weight: 700;
-            min-width: 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .repo-list-item a:hover {
-            text-decoration: underline;
-        }
-
-        .repo-list-meta {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            white-space: nowrap;
+            letter-spacing: 0.15px;
         }
 
         /* LinkedIn Section */
@@ -506,95 +500,6 @@
             text-decoration: none !important;
         }
 
-
-        
-        .repo-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .repo-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--github-accent);
-        }
-        
-        .repo-header {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .repo-icon {
-            width: 34px;
-            height: 34px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.95rem;
-            font-weight: 900;
-            flex: 0 0 auto;
-        }
-        
-        .repo-name {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--github-accent);
-            text-decoration: none;
-            flex: 1;
-        }
-        
-        .repo-name:hover {
-            text-decoration: underline;
-        }
-        
-        .repo-visibility {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .repo-description {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        
-        .repo-footer {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .repo-language {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .language-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-light);
-        }
-        
         /* Summary Card */
         .summary-card {
             background: var(--card-bg);
@@ -667,6 +572,20 @@
             color: var(--accent-light);
             font-size: 0.9rem;
             font-weight: 600;
+        }
+
+        .timeline-bullets {
+            margin: 0.9rem 0 0;
+            padding-left: 1.25rem;
+            display: grid;
+            gap: 0.5rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .timeline-bullets li {
+            margin: 0;
         }
         
         /* Skills Grid */
@@ -1004,7 +923,7 @@
             <div class="logo">KK</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#github">GitHub</a></li>
+                <li><a href="#github">Projects</a></li>
                 <li><a href="#linkedin">LinkedIn</a></li>
                 <li><a href="#devops">DevOps</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -1017,22 +936,22 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <span class="hero-tag">🎯 Engineering Excellence Meets Cloud Innovation</span>
+                <span class="hero-tag">AWS DevOps Engineer</span>
                 <h1>Kanak Kumar Hinge</h1>
-                <p class="hero-subtitle">AWS DevOps Engineer Professional</p>
+                <p class="hero-subtitle">CI/CD • Terraform • Docker/Kubernetes • Linux</p>
                 <p class="hero-description">
-                    Specializing in cloud automation, CI/CD pipelines, and infrastructure as code while bringing practical engineering 
-                    insights from industrial operations.
+                    I automate cloud infrastructure and delivery pipelines so teams can ship reliable releases faster.
+                    Open to DevOps / Cloud / Platform Engineer roles.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://github.com/Kanakhinge05" target="_blank" class="btn btn-github">
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                    <a href="https://github.com/Kanakhinge05" target="_blank" rel="noopener noreferrer" class="btn btn-github">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                         View GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">LinkedIn</a>
                 </div>
             </div>
             <div class="hero-stats">
@@ -1041,8 +960,8 @@
                     <div class="stat-label">GitHub Repos</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Internships</div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Current Role</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number" id="projectsCountHero">—</div>
@@ -1053,37 +972,39 @@
     </section>
 
     <section class="github-section" id="github">
-        <h3 style="font-size: 2rem; text-align: center; margin: 3rem 0 1.5rem; color: white;">Repository Details</h3>
-        <div class="repo-lists-grid" aria-label="GitHub repository lists">
-            <details class="repo-list-panel" open>
-                <summary>
-                    <span>All Repositories</span>
-                    <span class="repo-list-badge" id="allReposBadge">—</span>
-                </summary>
-                <ul class="repo-list" id="allReposList" aria-live="polite">
-                    <li class="repo-list-item"><span style="color: rgba(255, 255, 255, 0.85);">Loading…</span></li>
-                </ul>
-            </details>
+        <div class="section-header">
+            <h2 class="section-title" style="color: white;">Selected Projects</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85);">A few projects that reflect how I build and operate cloud systems.</p>
+        </div>
 
-            <details class="repo-list-panel" open>
-                <summary>
-                    <span>Projects</span>
-                    <span class="repo-list-badge" id="projectsBadge">—</span>
-                </summary>
-                <ul class="repo-list" id="projectReposList" aria-live="polite">
-                    <li class="repo-list-item"><span style="color: rgba(255, 255, 255, 0.85);">Loading…</span></li>
-                </ul>
-            </details>
+        <div class="projects-grid" id="curatedProjects" aria-live="polite">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Loading projects…</h3>
+                    <div class="project-links"></div>
+                </div>
+                <p class="project-description">Fetching curated projects from GitHub metadata.</p>
+            </div>
+        </div>
+    </section>
 
-            <details class="repo-list-panel" open>
-                <summary>
-                    <span>Top Starred Repositories</span>
-                    <span class="repo-list-badge" id="starsBadge">—</span>
-                </summary>
-                <ul class="repo-list" id="starredReposList" aria-live="polite">
-                    <li class="repo-list-item"><span style="color: rgba(255, 255, 255, 0.85);">Loading…</span></li>
-                </ul>
-            </details>
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2 class="section-title">Professional Summary</h2>
+        </div>
+        <div class="summary-card">
+            <p>
+                Aspiring AWS DevOps Engineer with hands-on knowledge of cloud infrastructure, automation, and CI/CD practices.
+                Familiar with key services of Amazon Web Services including Amazon EC2, Amazon S3, and AWS Identity and Access Management for building and managing scalable cloud environments.
+            </p>
+            <p>
+                Skilled in implementing CI/CD pipelines using tools like Jenkins and GitHub to automate application build, testing, and deployment processes.
+                Experienced in containerizing applications using Docker and managing Linux-based environments to improve deployment efficiency and system reliability.
+            </p>
+            <p>
+                Eager to contribute to DevOps teams by applying cloud and automation skills to streamline development workflows, enhance infrastructure performance, and 
+                support continuous delivery in modern software development environments.
+            </p>
         </div>
     </section>
 
@@ -1144,6 +1065,28 @@
                     <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/kanakkumarhinge?trk=profile-badge" target="_blank" rel="noopener noreferrer">Kanak Kumar Hinge</a>
                 </div>
                 <p class="linkedin-note" style="margin-top: 1rem;">Tip: If the badge doesn’t load (ad-blockers), use the “Open LinkedIn” button.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">A journey of continuous learning and hands-on engineering practice</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <h3 class="timeline-title">Vected Technology Pvt. Ltd., Indore</h3>
+                <p class="timeline-meta">March 2025 - Present</p>
+                <p class="timeline-location">AWS DevOps Intern</p>
+                <ul class="timeline-bullets">
+                    <li>Automated build and deployment workflows using Jenkins and GitHub Actions to reduce manual release effort.</li>
+                    <li>Provisioned and updated AWS infrastructure with Terraform (VPC, IAM, EC2/S3) using reusable modules.</li>
+                    <li>Containerized services with Docker and supported Kubernetes deployments with repeatable manifests.</li>
+                    <li>Implemented basic monitoring and alerting with CloudWatch logs/metrics to improve operational visibility.</li>
+                    <li>Hardened access patterns with least-privilege IAM policies and secure secret handling for pipelines.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1254,93 +1197,52 @@
         </div>
     </section>
 
-    <section class="section" id="about">
-        <div class="section-header">
-            <h2 class="section-title">Professional Summary</h2>
-        </div>
-        <div class="summary-card">
-            <p>
-                Aspiring AWS DevOps Engineer with hands-on knowledge of cloud infrastructure, automation, and CI/CD practices.
-                Familiar with key services of Amazon Web Services including Amazon EC2, Amazon S3, and AWS Identity and Access Management for building and managing scalable cloud environments.
-            </p>
-            <p>
-                Skilled in implementing CI/CD pipelines using tools like Jenkins and GitHub to automate application build, testing, and deployment processes.
-                Experienced in containerizing applications using Docker and managing Linux-based environments to improve deployment efficiency and system reliability.
-            </p>
-            <p>
-                Eager to contribute to DevOps teams by applying cloud and automation skills to streamline development workflows, enhance infrastructure performance, and 
-                support continuous delivery in modern software development environments.
-            </p>
-        </div>
-    </section>
-
-    <section class="section" id="experience">
-        <div class="section-header">
-            <h2 class="section-title">Professional Experience</h2>
-            <p class="section-subtitle">A journey of continuous learning and hands-on engineering practice</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-number">1</div>
-                <h3 class="timeline-title">Vected Technology Pvt. Ltd., Indore</h3>
-                <p class="timeline-meta">January 2026 - Present</p>
-                <p class="timeline-location">AWS DevOps Intern</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">2</div>
-                <h3 class="timeline-title">Mylan Laboratories Pvt. Ltd., Pithampur</h3>
-                <p class="timeline-meta">September 2024 - September 2025 (1 year)</p>
-                <p class="timeline-location">Apprenticeship</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">3</div>
-                <h3 class="timeline-title">North Western Railway, Indore</h3>
-                <p class="timeline-meta">June 2023 - July 2023 (2 months)</p>
-                <p class="timeline-location">Internship</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">4</div>
-                <h3 class="timeline-title">Symbiotec Pharmalab Pvt. Ltd., Indore</h3>
-                <p class="timeline-meta">July 2022 - August 2022 (2 months)</p>
-                <p class="timeline-location">Internship</p>
-            </div>
-        </div>
-    </section>
-
     <section class="section" id="skills">
         <div class="section-header">
             <h2 class="section-title">Technical Skills & Competencies</h2>
-            <p class="section-subtitle">Engineering software and methodologies expertise</p>
+            <p class="section-subtitle">DevOps-focused tooling, cloud, and delivery practices</p>
         </div>
         <div class="skills-grid">
             <div class="skill-category">
-                <h3>Engineering Software</h3>
+                <h3>Cloud (AWS)</h3>
                 <ul class="skill-list">
-                    <li>SAP Business Software</li>
-                    <li>AutoCAD Design</li>
-                    <li>CREO 3D Modeling</li>
-                    <li>Calibration & Documentation</li>
+                    <li>EC2, VPC, IAM</li>
+                    <li>S3, ECR</li>
+                    <li>CloudWatch (logs & metrics)</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Programming & Scripting</h3>
+                <h3>Infrastructure as Code</h3>
                 <ul class="skill-list">
-                    <li>Python Programming</li>
-                    <li>Automation Scripts</li>
-                    <li>Shell Scripting</li>
-                    <li>Version Control (Git)</li>
+                    <li>Terraform (modules, state)</li>
+                    <li>HCL, reusable patterns</li>
+                    <li>Git & GitHub workflows</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Core Competencies</h3>
+                <h3>CI/CD</h3>
                 <ul class="skill-list">
-                    <li>Cloud Computing (AWS)</li> 
-                    <li>CI/CD Pipelines</li>
-                    <li>Git & GitHub Version Control</li>
-                    <li>Process Optimization</li>
-                    <li>Infrastructure Automation</li>
-                    <li>Monitoring & Logging</li>
-
+                    <li>Jenkins pipelines</li>
+                    <li>GitHub Actions</li>
+                    <li>Build, test, deploy automation</li>
+                    <li>Release hygiene (versions, artifacts)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Containers & Platforms</h3>
+                <ul class="skill-list">
+                    <li>Docker (images, compose)</li>
+                    <li>Kubernetes (deployments, services)</li>
+                    <li>Helm basics</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Linux, Scripting & Observability</h3>
+                <ul class="skill-list">
+                    <li>Linux administration</li>
+                    <li>Bash, Python automation</li>
+                    <li>Monitoring and logging fundamentals</li>
+                    <li>Prometheus/Grafana basics</li>
                 </ul>
             </div>
         </div>
@@ -1409,25 +1311,51 @@
     <script>
         (function () {
             const GITHUB_USERNAME = 'Kanakhinge05';
-            const MAX_FEATURED_REPOS = 6;
             const CACHE_TTL_MS = 10 * 60 * 1000;
             const cacheKey = `kk_portfolio_github_cache_v1_${GITHUB_USERNAME}`;
+            const GITHUB_PROFILE_URL = `https://github.com/${GITHUB_USERNAME}`;
 
-            const languageColors = {
-                JavaScript: '#f1e05a',
-                TypeScript: '#3178c6',
-                Python: '#3572A5',
-                HTML: '#e34c26',
-                CSS: '#563d7c',
-                Shell: '#89e051',
-                HCL: '#844FBA',
-                Terraform: '#844FBA',
-                Dockerfile: '#384d54',
-                Go: '#00ADD8',
-                Java: '#b07219',
-                'C++': '#f34b7d',
-                C: '#555555'
-            };
+            const CURATED_PROJECTS = [
+                {
+                    title: 'CI/CD Pipeline for Containerized Apps',
+                    repoName: '',
+                    demoUrl: '',
+                    problem: 'Manual builds and deployments slowed iteration and increased release risk.',
+                    impact: 'Standardized build/test/deploy steps with repeatable pipelines and consistent environments.',
+                    stack: ['Jenkins', 'GitHub Actions', 'Docker', 'AWS'],
+                    highlights: [
+                        'Built multi-stage pipelines with build, test, and deploy stages',
+                        'Added environment-specific configuration and approvals',
+                        'Improved release consistency with versioned artifacts'
+                    ]
+                },
+                {
+                    title: 'Terraform AWS Baseline (VPC + IAM + Compute)',
+                    repoName: '',
+                    demoUrl: '',
+                    problem: 'Infrastructure changes were hard to review and reproduce across environments.',
+                    impact: 'Provisioned AWS resources from code using modules and safer change workflows.',
+                    stack: ['Terraform', 'AWS', 'IAM', 'VPC'],
+                    highlights: [
+                        'Created reusable Terraform modules and variables',
+                        'Applied least-privilege IAM patterns',
+                        'Introduced plan/apply workflows for controlled changes'
+                    ]
+                },
+                {
+                    title: 'Monitoring & Logging Starter Pack',
+                    repoName: '',
+                    demoUrl: '',
+                    problem: 'Limited visibility made it harder to detect and diagnose issues quickly.',
+                    impact: 'Added basic monitoring and dashboards to surface service health signals.',
+                    stack: ['CloudWatch', 'Prometheus', 'Grafana', 'Linux'],
+                    highlights: [
+                        'Centralized logs and key service metrics',
+                        'Configured dashboards for latency/error/throughput views',
+                        'Created alerting rules for common failure conditions'
+                    ]
+                }
+            ];
 
             function $(id) {
                 return document.getElementById(id);
@@ -1467,218 +1395,108 @@
                 el.textContent = safeText(value);
             }
 
-            function setAvatar(profile) {
-                const avatar = $('githubAvatar');
-                if (avatar && profile.avatar_url) avatar.src = profile.avatar_url;
+            function createProjectLink(label, href) {
+                if (!href) return null;
+                const a = document.createElement('a');
+                a.className = 'project-link';
+                a.href = href;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.textContent = label;
+                return a;
             }
 
-            function setProfile(profile) {
-                setAvatar(profile);
-                setText('githubUsername', profile.login);
-                setText('githubDisplayName', profile.name || profile.login);
-
-                const locationEl = $('githubLocation');
-                if (locationEl) locationEl.textContent = `Location: ${safeText(profile.location, 'Not set')}`;
-
-                const joinEl = $('githubJoinDate');
-                if (joinEl) joinEl.textContent = `Joined: ${formatMonthYear(profile.created_at)}`;
-
-                const repoCount = Number.isFinite(profile.public_repos) ? profile.public_repos : '—';
-                setText('githubRepoCountHero', repoCount);
-                setText('githubPublicRepos', repoCount);
-            }
-
-            function buildRepoCard(repo) {
-                const visibility = repo.private ? 'Private' : 'Public';
-                const language = repo.language || '';
-                const languageColor = languageColors[language] || '#95a5a6';
-                const description = repo.description || 'No description provided.';
-                const stars = Number.isFinite(repo.stargazers_count) ? repo.stargazers_count : 0;
-
+            function buildCuratedCard(project, repo) {
                 const card = document.createElement('div');
-                card.className = 'repo-card';
+                card.className = 'project-card';
 
                 const header = document.createElement('div');
-                header.className = 'repo-header';
+                header.className = 'project-header';
 
-                const icon = document.createElement('span');
-                icon.className = 'repo-icon';
-                icon.textContent = 'R';
+                const title = document.createElement('h3');
+                title.className = 'project-title';
+                title.textContent = safeText(project.title);
 
-                const nameLink = document.createElement('a');
-                nameLink.className = 'repo-name';
-                nameLink.href = repo.html_url;
-                nameLink.target = '_blank';
-                nameLink.rel = 'noopener noreferrer';
-                nameLink.textContent = repo.name;
+                const links = document.createElement('div');
+                links.className = 'project-links';
 
-                const vis = document.createElement('span');
-                vis.className = 'repo-visibility';
-                vis.textContent = visibility;
+                const githubHref = repo && repo.html_url
+                    ? repo.html_url
+                    : (project.repoName ? `${GITHUB_PROFILE_URL}/${project.repoName}` : GITHUB_PROFILE_URL);
 
-                header.appendChild(icon);
-                header.appendChild(nameLink);
-                header.appendChild(vis);
+                const githubLink = createProjectLink('GitHub', githubHref);
+                if (githubLink) links.appendChild(githubLink);
 
-                const desc = document.createElement('p');
-                desc.className = 'repo-description';
-                desc.textContent = description;
+                if (project.demoUrl) {
+                    const demoLink = createProjectLink('Live Demo', project.demoUrl);
+                    if (demoLink) links.appendChild(demoLink);
+                }
 
-                const footer = document.createElement('div');
-                footer.className = 'repo-footer';
+                header.appendChild(title);
+                header.appendChild(links);
 
-                const langWrap = document.createElement('div');
-                langWrap.className = 'repo-language';
+                const description = document.createElement('p');
+                description.className = 'project-description';
+                description.textContent = `${safeText(project.problem, '')} ${safeText(project.impact, '')}`.trim();
 
-                const dot = document.createElement('span');
-                dot.className = 'language-dot';
-                dot.style.background = languageColor;
+                const bullets = document.createElement('ul');
+                bullets.className = 'project-kpis';
+                const highlights = Array.isArray(project.highlights) ? project.highlights : [];
+                for (const point of highlights.slice(0, 4)) {
+                    const li = document.createElement('li');
+                    li.textContent = safeText(point);
+                    bullets.appendChild(li);
+                }
 
-                const lang = document.createElement('span');
-                lang.textContent = language ? language : '—';
-
-                langWrap.appendChild(dot);
-                langWrap.appendChild(lang);
-
-                const starsEl = document.createElement('span');
-                starsEl.textContent = `Stars: ${stars}`;
-
-                footer.appendChild(langWrap);
-                footer.appendChild(starsEl);
+                const stack = document.createElement('div');
+                stack.className = 'project-stack';
+                const stackItems = Array.isArray(project.stack) ? project.stack : [];
+                for (const item of stackItems) {
+                    const chip = document.createElement('span');
+                    chip.className = 'chip';
+                    chip.textContent = safeText(item);
+                    stack.appendChild(chip);
+                }
 
                 card.appendChild(header);
-                card.appendChild(desc);
-                card.appendChild(footer);
+                if (description.textContent) card.appendChild(description);
+                if (bullets.childElementCount) card.appendChild(bullets);
+                if (stack.childElementCount) card.appendChild(stack);
 
                 return card;
             }
 
-            function renderSimpleList(listId, repos, options = {}) {
-                const list = $(listId);
-                if (!list) return;
+            function renderCuratedProjects(repos, errorMessage) {
+                const grid = $('curatedProjects');
+                if (!grid) return;
 
-                const formatItem = options.formatItem || ((repo) => {
-                    const stars = Number.isFinite(repo.stargazers_count) ? repo.stargazers_count : 0;
-                    const language = repo.language ? ` • ${repo.language}` : '';
-                    return { name: repo.name, url: repo.html_url, meta: `Stars: ${stars}${language}` };
-                });
-
-                list.innerHTML = '';
-
-                if (!repos || !repos.length) {
-                    const li = document.createElement('li');
-                    li.className = 'repo-list-item';
-
-                    const span = document.createElement('span');
-                    span.style.color = 'rgba(255, 255, 255, 0.85)';
-                    span.textContent = safeText(options.emptyText, 'No items found.');
-
-                    li.appendChild(span);
-                    list.appendChild(li);
-                    return;
-                }
-
-                for (const repo of repos) {
-                    const item = formatItem(repo);
-                    const li = document.createElement('li');
-                    li.className = 'repo-list-item';
-
-                    const a = document.createElement('a');
-                    a.href = item.url || '#';
-                    a.target = '_blank';
-                    a.rel = 'noopener noreferrer';
-                    a.textContent = safeText(item.name);
-
-                    const meta = document.createElement('span');
-                    meta.className = 'repo-list-meta';
-                    meta.textContent = safeText(item.meta, '');
-
-                    li.appendChild(a);
-                    li.appendChild(meta);
-                    list.appendChild(li);
-                }
-            }
-
-            function renderRepos(repos) {
-                const grid = $('featuredRepos');
-
-                const projectRepos = (repos || [])
-                    .filter((r) => !r.fork && !r.archived)
-                    ;
-
-                const featured = [...projectRepos]
-                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-                    .slice(0, MAX_FEATURED_REPOS);
-
-                if (grid) {
-                    grid.innerHTML = '';
-
-                    if (!featured.length) {
-                        const empty = document.createElement('div');
-                        empty.className = 'repo-card';
-                        empty.innerHTML = `
-                            <div class="repo-header">
-                                <span class="repo-icon">i</span>
-                                <span class="repo-name" style="pointer-events: none;">No repositories found</span>
-                            </div>
-                            <p class="repo-description">Make sure your repositories are public (or increase API rate limits).</p>
-                        `;
-                        grid.appendChild(empty);
-                    } else {
-                        for (const repo of featured) {
-                            grid.appendChild(buildRepoCard(repo));
-                        }
+                const repoMap = new Map();
+                if (Array.isArray(repos)) {
+                    for (const repo of repos) {
+                        const key = String(repo && repo.name ? repo.name : '').toLowerCase();
+                        if (key) repoMap.set(key, repo);
                     }
                 }
 
-                const projectCount = projectRepos.length;
-                setText('projectsCountHero', projectCount);
-                setText('githubProjects', projectCount);
-                setText('projectsBadge', projectCount);
+                grid.innerHTML = '';
 
-                const totalStars = projectRepos.reduce((sum, r) => sum + (Number.isFinite(r.stargazers_count) ? r.stargazers_count : 0), 0);
-                setText('githubStars', totalStars);
-                setText('starsBadge', totalStars);
-
-                setText('allReposBadge', Array.isArray(repos) ? repos.length : '—');
-
-                const allReposByName = [...(repos || [])].sort((a, b) => String(a.name || '').localeCompare(String(b.name || '')));
-                renderSimpleList('allReposList', allReposByName, { emptyText: 'No repositories found.' });
-
-                const projectsByUpdated = [...projectRepos].sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-                renderSimpleList('projectReposList', projectsByUpdated, { emptyText: 'No projects found.' });
-
-                const starred = [...projectRepos]
-                    .filter((r) => (Number.isFinite(r.stargazers_count) ? r.stargazers_count : 0) > 0)
-                    .sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
-
-                renderSimpleList('starredReposList', starred, {
-                    emptyText: 'No starred repositories yet.',
-                    formatItem: (repo) => {
-                        const stars = Number.isFinite(repo.stargazers_count) ? repo.stargazers_count : 0;
-                        const updated = repo.updated_at ? ` • Updated ${formatMonthYear(repo.updated_at)}` : '';
-                        return { name: repo.name, url: repo.html_url, meta: `Stars: ${stars}${updated}` };
-                    }
-                });
-            }
-
-            function showRepoLoadError(message) {
-                const grid = $('featuredRepos');
-                if (grid) {
-                    grid.innerHTML = `
-                        <div class="repo-card" aria-live="polite">
-                            <div class="repo-header">
-                                <span class="repo-icon">!</span>
-                                <span class="repo-name" style="pointer-events: none;">Unable to load GitHub repositories</span>
-                            </div>
-                            <p class="repo-description">${message}</p>
+                if (errorMessage) {
+                    const warn = document.createElement('div');
+                    warn.className = 'project-card';
+                    warn.innerHTML = `
+                        <div class="project-header">
+                            <h3 class="project-title">GitHub data unavailable</h3>
+                            <div class="project-links"></div>
                         </div>
+                        <p class="project-description">${safeText(errorMessage, 'Unable to load GitHub data.')}</p>
                     `;
+                    grid.appendChild(warn);
                 }
 
-                renderSimpleList('allReposList', [], { emptyText: message });
-                renderSimpleList('projectReposList', [], { emptyText: message });
-                renderSimpleList('starredReposList', [], { emptyText: message });
+                for (const project of CURATED_PROJECTS.slice(0, 6)) {
+                    const repo = project.repoName ? repoMap.get(String(project.repoName).toLowerCase()) : null;
+                    grid.appendChild(buildCuratedCard(project, repo));
+                }
             }
 
             function readCache() {
@@ -1705,8 +1523,13 @@
             async function loadGithub() {
                 const cached = readCache();
                 if (cached) {
-                    if (cached.profile) setProfile(cached.profile);
-                    if (cached.repos) renderRepos(cached.repos);
+                    if (cached.profile) {
+                        const repoCount = Number.isFinite(cached.profile.public_repos) ? cached.profile.public_repos : '—';
+                        setText('githubRepoCountHero', repoCount);
+                    }
+
+                    setText('projectsCountHero', CURATED_PROJECTS.length);
+                    renderCuratedProjects(cached.repos);
                     return;
                 }
 
@@ -1717,10 +1540,14 @@
                     ]);
 
                     writeCache({ profile, repos });
-                    setProfile(profile);
-                    renderRepos(repos);
+
+                    const repoCount = Number.isFinite(profile.public_repos) ? profile.public_repos : '—';
+                    setText('githubRepoCountHero', repoCount);
+                    setText('projectsCountHero', CURATED_PROJECTS.length);
+                    renderCuratedProjects(repos);
                 } catch (err) {
-                    showRepoLoadError(err && err.message ? err.message : 'Unknown error.');
+                    setText('projectsCountHero', CURATED_PROJECTS.length);
+                    renderCuratedProjects(null, err && err.message ? err.message : 'Unknown error.');
                 }
             }
 
