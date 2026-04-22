@@ -22,6 +22,11 @@
             --success: #27AE60;
         }
         
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -92,8 +97,58 @@
             letter-spacing: 0.3px;
         }
         
+        .nav-links a {
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
         .nav-links a:hover {
             color: var(--accent);
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
         }
         
         /* Hero Section */
@@ -217,6 +272,7 @@
             gap: 1rem;
             flex-wrap: wrap;
             margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
         .btn {
@@ -227,10 +283,31 @@
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-decoration: none;
             display: inline-block;
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .btn-primary {
@@ -239,8 +316,8 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
         
         .btn-secondary {
@@ -252,7 +329,8 @@
         .btn-secondary:hover {
             background: white;
             color: var(--primary);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
         }
         
         .btn-github {
@@ -265,8 +343,8 @@
         
         .btn-github:hover {
             background: #1a1e22;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(36, 41, 46, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(36, 41, 46, 0.5);
         }
         
         /* Section Styling */
@@ -274,6 +352,18 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 5rem 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .section-header {
@@ -315,13 +405,32 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 14px;
             padding: 1.75rem;
-            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.5s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-card:hover::before {
+            right: -20%;
+            top: -20%;
         }
 
         .project-header {
@@ -358,10 +467,13 @@
             font-size: 0.85rem;
             background: rgba(0, 0, 0, 0.14);
             white-space: nowrap;
+            transition: all 0.3s ease;
         }
 
         .project-link:hover {
-            border-color: rgba(255, 255, 255, 0.28);
+            border-color: rgba(255, 255, 255, 0.38);
+            background: rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
         }
 
         .project-description {
@@ -396,6 +508,18 @@
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.15px;
+            animation: chipSlide 0.5s ease-out;
+        }
+        
+        @keyframes chipSlide {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* LinkedIn Section */
@@ -470,6 +594,14 @@
             font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: 0.2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: scale(1.08);
+            border-color: rgba(255, 255, 255, 0.35);
         }
 
         .linkedin-actions {
@@ -487,7 +619,8 @@
 
         .btn-linkedin:hover {
             background: rgba(255, 255, 255, 0.22);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .linkedin-card .LI-profile-badge {
@@ -605,8 +738,8 @@
         }
         
         .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
         
         .skill-category h3 {
@@ -663,8 +796,8 @@
         }
         
         .devops-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
         }
         
         .devops-icon {
@@ -699,6 +832,13 @@
             font-size: 0.8rem;
             font-family: 'JetBrains Mono', monospace;
             color: var(--github-accent);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background: rgba(3, 102, 214, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(3, 102, 214, 0.2);
         }
 
         .devops-extras {
@@ -788,8 +928,8 @@
         }
         
         .education-card:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-            transform: translateX(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transform: translateX(12px) scale(1.02);
         }
         
         .education-icon {
@@ -885,14 +1025,67 @@
         footer {
             background: #1A252F;
             color: rgba(255, 255, 255, 0.7);
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         footer a {
             color: var(--accent-light);
             text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent-light);
+            transition: width 0.3s ease;
+        }
+        
+        footer a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-section a {
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Responsive Design */
@@ -905,7 +1098,35 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .section-title { font-size: 2rem; }
-            .nav-links { display: none; }
+            
+            nav .container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 2rem 1rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border);
+                animation: slideDown 0.3s ease-out;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                z-index: 999;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
             .timeline { padding-left: 1rem; }
             .timeline-item { padding-left: 1.5rem; }
             .education-card { grid-template-columns: 1fr; text-align: center; }
@@ -914,14 +1135,20 @@
             .hero-stats { grid-template-columns: 1fr; }
             .linkedin-wrap { grid-template-columns: 1fr; }
             .linkedin-facts li { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <div class="logo">KK</div>
-            <ul class="nav-links">
+            <div class="logo">KKH</div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#github">Projects</a></li>
                 <li><a href="#linkedin">LinkedIn</a></li>
@@ -1005,6 +1232,21 @@
                 Eager to contribute to DevOps teams by applying cloud and automation skills to streamline development workflows, enhance infrastructure performance, and 
                 support continuous delivery in modern software development environments.
             </p>
+        </div>
+        
+        <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
+            <div style="background: rgba(38, 186, 61, 0.08); padding: 2rem; border-radius: 12px; border-left: 4px solid #26ba3d;">
+                <h3 style="color: #26ba3d; margin-bottom: 0.75rem; font-size: 1.25rem;">🚀 Production-Ready</h3>
+                <p style="color: var(--text-light); line-height: 1.7;">Deploy applications with confidence using industry-standard DevOps practices and security-first mindset.</p>
+            </div>
+            <div style="background: rgba(102, 18, 181, 0.08); padding: 2rem; border-radius: 12px; border-left: 4px solid #6612b5;">
+                <h3 style="color: #6612b5; margin-bottom: 0.75rem; font-size: 1.25rem;">⚡ Fast & Efficient</h3>
+                <p style="color: var(--text-light); line-height: 1.7;">Streamline workflows and reduce time-to-market with automated CI/CD pipelines and infrastructure-as-code.</p>
+            </div>
+            <div style="background: rgba(243, 156, 18, 0.08); padding: 2rem; border-radius: 12px; border-left: 4px solid #F39C12;">
+                <h3 style="color: #F39C12; margin-bottom: 0.75rem; font-size: 1.25rem;">🔒 Secure & Scalable</h3>
+                <p style="color: var(--text-light); line-height: 1.7;">Build infrastructure with least-privilege access patterns and observability from day one.</p>
+            </div>
         </div>
     </section>
 
@@ -1275,8 +1517,9 @@
 
     <section class="contact-section" id="contact">
         <div class="contact-content">
-            <h2>Let's Connect</h2>
-            <p>I'm always interested in new opportunities and collaborations in DevOps and mechanical engineering.</p>
+            <h2>Let's Build Something Great</h2>
+            <p>I'm always interested in new opportunities and collaborations in DevOps and Cloud Engineering.</p>
+            <p style="opacity: 0.8; font-size: 1rem; margin-top: 1rem;">Whether you're looking to enhance your infrastructure, optimize your CI/CD pipelines, or scale your cloud operations, I'd love to discuss how I can help.</p>
             
             <div class="contact-info">
                 <div class="contact-item">
@@ -1293,21 +1536,67 @@
                 </div>
                 <div class="contact-item">
                     <h4>GitHub</h4>
-                    <p><a href="https://github.com/Kanakhinge05" target="_blank">@Kanakhinge05</a></p>
+                    <p><a href="https://github.com/Kanakhinge05" target="_blank" rel="noopener noreferrer">@Kanakhinge05</a></p>
                 </div>
             </div>
             
-            <div style="margin-top: 3rem;">
-                <a href="mailto:kanakkumarhinge@gmail.com" class="btn btn-primary">Get in Touch</a>
+            <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:kanakkumarhinge@gmail.com" class="btn btn-primary">Send Me an Email</a>
+                <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">Connect on LinkedIn</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kanak Kumar Hinge. All rights reserved. | <a href="https://github.com/Kanakhinge05" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank">LinkedIn</a></p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <a href="#about">About Me</a>
+                <a href="#github">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Social</h4>
+                <a href="https://github.com/Kanakhinge05" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:kanakkumarhinge@gmail.com">Email</a>
+                <a href="tel:+918602343454">Phone</a>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#devops">DevOps Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#linkedin">LinkedIn Profile</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kanak Kumar Hinge. All rights reserved. | Crafted with focus on DevOps & Cloud Engineering</p>
+        </div>
     </footer>
 
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
     <script>
         (function () {
             const GITHUB_USERNAME = 'Kanakhinge05';
